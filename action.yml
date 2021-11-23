@@ -1,9 +1,9 @@
-name: "server shell"
+name: "ServerShell"
 description: "action for app deployment with ssh"
 author: "tzzs"
 branding:
-  icon: 'server'
-  color: 'blue'
+  icon: "server"
+  color: "blue"
 inputs:
   PRIVATE_KEY:
     description: "server private key"
