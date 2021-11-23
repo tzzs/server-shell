@@ -1,4 +1,4 @@
-name: "ServerShell"
+name: "Server Shell"
 description: "action for app deployment with ssh"
 author: "tzzs"
 branding:
