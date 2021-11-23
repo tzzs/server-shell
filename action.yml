@@ -1,5 +1,5 @@
 name: "Server Shell"
-description: "connect your self-server and execute command on it via SSH."
+description: "Connect your self-server and execute command on it via SSH."
 author: "tzzs"
 branding:
   icon: "server"
