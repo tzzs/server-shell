@@ -1,5 +1,5 @@
 name: "Server Shell"
-description: "action for app deployment with ssh"
+description: "connect your self-server and execute command on it via SSH."
 author: "tzzs"
 branding:
   icon: "server"
