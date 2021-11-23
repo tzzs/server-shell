@@ -1,0 +1,20 @@
+name: "server shell"
+description: "action for app deployment with ssh"
+author: "tzzs"
+inputs:
+  PRIVATE_KEY:
+    description: "server private key"
+    required: true
+  USERNAME:
+    description: "server login username"
+    required: true
+  IP:
+    description: "server ip"
+    required: true
+  SHELL:
+    description: "shell to execute on server"
+    required: false
+
+runs:
+  using: "node12"
+  main: "dist/index.js"

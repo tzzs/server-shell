@@ -1,0 +1,26 @@
+name: "action-test"
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "releases/*"
+      - v1
+
+jobs:
+  # test action works running from the graph
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+        shell: bash
+      - uses: ./
+        with:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}
+          USERNAME: ${{secrets.USERNAME}}
+          IP: ${{secrets.IP}}
+          SHELL: |
+            "echo action-test"
+            "echo successful"
+            "pwd"
