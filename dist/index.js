@@ -12,10 +12,10 @@ module.exports = /******/ (() => {
       const io = __nccwpck_require__(436);
       const fs = __nccwpck_require__(747);
 
-      const values_list = ["PRIVATE_KEY", "USERNAME", "IP", "SHELL"];
+      const values_list = ["PRIVATE_KEY", "USERNAME", "IP", "PORT", "SHELL"];
 
       // get input values
-      let { PRIVATE_KEY, USERNAME, IP, SHELL } = (function () {
+      let { PRIVATE_KEY, USERNAME, IP, PORT, SHELL } = (function () {
         let values = [];
         values_list.forEach((value) => {
           values[value] = core.getInput(value);
@@ -40,9 +40,17 @@ module.exports = /******/ (() => {
           if (IP.trim().length == 0) {
             throw "IP cannot be empty";
           }
+          if (PORT.trim().length == 0) {
+            PORT = 22;
+          } else {
+            PORT = parseInt(PORT);
+            if (isNaN(PORT)) {
+              throw "invalid PORT";
+            }
+          }
 
           // get home dir from environment
-          HOME = process.env["HOME"];
+          const HOME = process.env["HOME"];
           core.info(HOME);
 
           // config ssh
@@ -55,6 +63,7 @@ module.exports = /******/ (() => {
             `Host server\n\
     HostName ${IP}\n\
     User ${USERNAME}\n\
+    Port ${PORT}\n\
     IdentityFile ~/.ssh/deploy.key\n\
     StrictHostKeyChecking no\n`
           );
@@ -64,7 +73,7 @@ module.exports = /******/ (() => {
           // check if SHELL is not null
           if (SHELL.trim().length != 0) {
             let shells = SHELL.split("\n");
-            for (shell of shells) {
+            for (let shell of shells) {
               core.info(shell);
               await exec.exec("ssh server " + shell);
             }

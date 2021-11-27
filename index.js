@@ -3,10 +3,10 @@ const exec = require("@actions/exec");
 const io = require("@actions/io");
 const fs = require("fs");
 
-const values_list = ["PRIVATE_KEY", "USERNAME", "IP", "SHELL"];
+const values_list = ["PRIVATE_KEY", "USERNAME", "IP", "PORT", "SHELL"];
 
 // get input values
-let { PRIVATE_KEY, USERNAME, IP, SHELL } = (function () {
+let { PRIVATE_KEY, USERNAME, IP, PORT, SHELL } = (function () {
   let values = [];
   values_list.forEach((value) => {
     values[value] = core.getInput(value);
@@ -31,6 +31,14 @@ async function run() {
     if (IP.trim().length == 0) {
       throw "IP cannot be empty";
     }
+    if (PORT.trim().length == 0) {
+      PORT = 22;
+    } else {
+      PORT = parseInt(PORT);
+      if (isNaN(PORT)) {
+        throw "invalid PORT";
+      }
+    }
 
     // get home dir from environment
     const HOME = process.env["HOME"];
@@ -46,6 +54,7 @@ async function run() {
       `Host server\n\
     HostName ${IP}\n\
     User ${USERNAME}\n\
+    Port ${PORT}\n\
     IdentityFile ~/.ssh/deploy.key\n\
     StrictHostKeyChecking no\n`
     );
