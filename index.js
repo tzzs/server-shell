@@ -65,8 +65,9 @@ async function run() {
     if (SHELL.trim().length != 0) {
       let shells = SHELL.split("\n");
       for (let shell of shells) {
+        shell = "ssh server " + shell
         core.info(shell);
-        await exec.exec("ssh server " + shell);
+        await exec.exec(shell);
       }
     }
   } catch (error) {

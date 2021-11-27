@@ -24,7 +24,7 @@ jobs:
             "echo action-test"
             "echo successful"
             "pwd"
-            "'bash -s' < test.sh > /dev/null 2>&1"
+            "< test.sh > /dev/null 2>&1"
   test-port:
     runs-on: ubuntu-latest
     steps:
