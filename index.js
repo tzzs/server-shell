@@ -53,12 +53,13 @@ async function run() {
       HOME + "/.ssh/config",
       `Host server\n\
     HostName ${IP}\n\
-    Port ${PORT}\n\
     User ${USERNAME}\n\
+    Port ${PORT}\n\
     IdentityFile ~/.ssh/deploy.key\n\
     StrictHostKeyChecking no\n`
     );
 
+    await exec.exec(`cat ` + HOME + "/.ssh/config");
     await exec.exec("ls -al");
 
     // check if SHELL is not null
