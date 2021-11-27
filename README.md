@@ -20,7 +20,7 @@ steps:
   - uses: actions/checkout@v2
   - run: npm install
     shell: bash
-  - uses: ./
+  - uses: tzzs/server-shell@v3
     with:
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}
       USERNAME: ${{secrets.USERNAME}}
