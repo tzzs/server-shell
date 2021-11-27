@@ -24,6 +24,12 @@ jobs:
             "echo action-test"
             "echo successful"
             "pwd"
+  test-port:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+        shell: bash
       - uses: ./
         with:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}

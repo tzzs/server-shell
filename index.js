@@ -49,7 +49,6 @@ async function run() {
     await create_file(HOME + "/.ssh/deploy.key", PRIVATE_KEY);
     await exec.exec(`ls ${HOME}/.ssh`);
     await exec.exec(`chmod 600 ${HOME}/.ssh/deploy.key`);
-    await exec.exec(`sed -i 's/\r// ${HOME}/.ssh/deploy.key`);
     await create_file(
       HOME + "/.ssh/config",
       `Host server\n\
@@ -60,9 +59,6 @@ async function run() {
     StrictHostKeyChecking no\n`
     );
 
-    core.info("****");
-    await exec.exec(`cat ` + HOME + "/.ssh/config");
-    core.info("***");
     await exec.exec("ls -al");
 
     // check if SHELL is not null
