@@ -1,6 +1,7 @@
 # server-shell
 
 [![action-test](https://github.com/tzzs/server-shell/actions/workflows/action-test.yml/badge.svg)](https://github.com/tzzs/server-shell/actions/workflows/action-test.yml)
+[![license](https://img.shields.io/badge/license-MIT-brightgreen)](https://github.com/tzzs/server-shell/blob/main/LICENSE)
 
 This action could connect your self-server and execute command on it via SSH. This is useful when you want to execute commands on your own server form your workflow.
 
