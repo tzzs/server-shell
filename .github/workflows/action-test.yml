@@ -24,3 +24,13 @@ jobs:
             "echo action-test"
             "echo successful"
             "pwd"
+      - uses: ./
+        with:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}
+          USERNAME: ${{secrets.USERNAME}}
+          IP: ${{secrets.IP}}
+          PORT: ${{secrets.PORT}}
+          SHELL: |
+            "echo action-test port"
+            "echo successful"
+            "pwd"
