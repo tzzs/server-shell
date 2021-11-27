@@ -14,6 +14,10 @@ inputs:
   IP:
     description: "server ip"
     required: true
+  PORT:
+    description: "The port to connect to the server ssh"
+    required: false
+    default: "22"
   SHELL:
     description: "shell to execute on server"
     required: false

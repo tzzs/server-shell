@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - "releases/*"
-      - v1
+      - "feature*"
 
 jobs:
   # test action works running from the graph
