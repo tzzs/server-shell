@@ -21,10 +21,10 @@ jobs:
           USERNAME: ${{secrets.USERNAME}}
           IP: ${{secrets.IP}}
           SHELL: |
-            "echo action-test"
-            "echo successful"
-            "pwd"
-            "< test.sh > /dev/null 2>&1"
+            echo action-test
+            echo successful
+            pwd
+            < test.sh > /dev/null 2>&1
   test-port:
     runs-on: ubuntu-latest
     steps:
