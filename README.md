@@ -42,29 +42,29 @@ Add the following parameters to secrets:
 The following parameters (some optional) need to be configured in workflow.
 
 1. `PRIVATE_KEY` [required]
-   
+
    This is from the `~/.ssh/id_rsa` file.
 
 2. `IP` [required]
-   
+
    ```
    eg: 127.0.0.1
    ```
 
 3. `PORT` [optional, default: 22]
-   
+
    ```
    eg: 22
    ```
 
 4. `USERNAME` [required]
-   
+
    ```
    eg: root
    ```
 
 5. `SHELL` (optional), use the `| ` symbol to add multiple commands
-   
+
    ```shell
    SHELL: |
       "echo action-test"

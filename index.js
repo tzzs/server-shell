@@ -32,7 +32,12 @@ async function run() {
       throw "IP cannot be empty";
     }
     if (PORT.trim().length == 0) {
-      PORT = "22";
+      PORT = 22;
+    } else {
+      PORT = parseInt(PORT);
+      if (isNaN(PORT)) {
+        throw "invalid PORT";
+      }
     }
 
     // get home dir from environment
